@@ -1,15 +1,15 @@
 CC=gcc
 
-all: inherit
+all: ll
 
-inherit: main.o inherit.o
-	gcc -Wall main.o inherit.o
+ll: main.o ll.o
+	gcc -o ll -Wall main.o ll.o
 
-main.o: main.c inherit.h
-	gcc -Wall -c main.c inherit.c
+main.o: main.c ll.h
+	gcc -I. -Wall -c main.c ll.c
 
-inherit.o: inherit.c inherit.h
-	gcc -Wall -c inherit.c
+ll.o: ll.c ll.h
+	gcc -I. -Wall -c ll.c
 
 clean:
-	rm -rf *.o *.h.gch a.out inherit
+	rm -rf *.o *.h.gch a.out ll
